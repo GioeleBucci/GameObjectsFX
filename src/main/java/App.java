@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 public class App extends Application {
 
-  public static final int FPS = 10; //TODO watch video about mario movment and learn subpixels
+  public static final int FPS = 30; //TODO watch video about mario movment and learn subpixels
 
   public static final Group root = new Group();
 
@@ -35,8 +35,9 @@ public class App extends Application {
 
     // start game loop -> update according to FPS
     AnimationTimer timer = new AnimationTimer() {
-      long updateRate = 1 / FPS * 1000;
-
+      
+      float updateRate = 1 / (float)FPS * 1000;
+            
       @Override
       public void handle(long now) {
         long current = System.currentTimeMillis();
@@ -52,7 +53,6 @@ public class App extends Application {
   }
 
   private void updateAll() {
-    player.update();
     for (GameObject gameObject : gameObjects) {
       gameObject.update();
     }

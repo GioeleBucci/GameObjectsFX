@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 public class GameObject {
+
   @Getter
   private Node sprite;
   @Getter @Setter 
@@ -14,7 +15,6 @@ public class GameObject {
   }
 
   void update() {
-    System.out.println("updating");
     this.sprite.setTranslateX(sprite.getTranslateX() + velocity.getX());
     this.sprite.setTranslateY(sprite.getTranslateY() + velocity.getY());
   }
