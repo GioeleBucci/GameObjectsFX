@@ -12,15 +12,21 @@ public class Player extends GameObject implements IDamagable {
   @Setter
   private int currentHealth = maxHealth;
 
+  private PlayerController controller = new PlayerController(this);
+
   private int iFramesLeft = 0;
 
-  Player(int maxHealth) {
-    super(new Rectangle(40, 20, Color.BLUE));
+  Player(int maxHealth, float velocity) {
+    super(new Rectangle(40, 20, Color.BLUE),velocity);
     this.maxHealth = maxHealth;
   }
 
+  @Override void update(){
+    super.update();
+  }
+
   public void takeDamage(int amount) {
-    
+
     // check if there are iFrames
     if (iFramesLeft > 0) {
       iFramesLeft--;

@@ -7,17 +7,23 @@ public class GameObject {
 
   @Getter
   private Node sprite;
+
   @Getter
   @Setter
-  private Point2D velocity = new Point2D(0, 0);
+  private Point2D direction = new Point2D(0, 0);
 
-  public GameObject(Node sprite) {
+  @Getter
+  @Setter
+  private double velocity;
+
+  public GameObject(Node sprite, double velocity) {
+    this.velocity = velocity;
     this.sprite = sprite;
   }
 
   void update() {
-    this.sprite.setTranslateX(sprite.getTranslateX() + velocity.getX());
-    this.sprite.setTranslateY(sprite.getTranslateY() + velocity.getY());
+    this.sprite.setTranslateX(sprite.getTranslateX() + direction.getX() * velocity);
+    this.sprite.setTranslateY(sprite.getTranslateY() + direction.getY() * velocity);
   }
 
   public boolean isColliding(GameObject other) {

@@ -16,6 +16,8 @@ public class App extends Application {
 
   public static final Group root = new Group();
 
+  public static final Scene scene = new Scene(root, 640, 480);
+
   public List<GameObject> gameObjects = new ArrayList<>();
 
   private Player player;
@@ -25,15 +27,12 @@ public class App extends Application {
   @Override
   public void start(Stage stage) {
 
-    Scene scene = new Scene(root, 640, 480);
-
-    player = new Player(3);
-    player.setVelocity(new Point2D(1, 0));
+    player = new Player(3,1);
     addGameObj(player, 300, 300);
 
     // create second gameObj
 
-    GameObject gameObj2 = new GameObject(new Rectangle(50, 50, Color.RED));
+    GameObject gameObj2 = new GameObject(new Rectangle(50, 50, Color.RED),0);
     addGameObj(gameObj2, 450, 300);
 
     stage.setScene(scene);
