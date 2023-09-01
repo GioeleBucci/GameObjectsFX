@@ -3,11 +3,10 @@ import javafx.scene.input.KeyCode;
 
 public class PlayerController {
 
-  public static Point2D DIRECTION_UP = new Point2D(0,-1);
-  public static Point2D DIRECTION_DOWN = new Point2D(0,1);
-  public static Point2D DIRECTION_LEFT = new Point2D(-1,0);
-  public static Point2D DIRECTION_RIGHT = new Point2D(1,0);
- 
+  public static Point2D DIRECTION_UP = new Point2D(0, -1);
+  public static Point2D DIRECTION_DOWN = new Point2D(0, 1);
+  public static Point2D DIRECTION_LEFT = new Point2D(-1, 0);
+  public static Point2D DIRECTION_RIGHT = new Point2D(1, 0);
 
   private Player player;
 
