@@ -4,6 +4,10 @@ import javafx.scene.shape.Rectangle;
 import lombok.Getter;
 import lombok.Setter;
 
+/** A {@code GameObject} contains an {@link #update() update()} method that gets called each frame
+ * <p>
+ * ({@link App#FPS Framerate} can be modified)
+ */
 public class GameObject {
 
   @Getter

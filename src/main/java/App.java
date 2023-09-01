@@ -54,6 +54,7 @@ public class App extends Application {
     timer.start();
   }
 
+  /** Runs the update() method on every gameObject */
   private void updateAll() {
     for (GameObject current : gameObjects) {
       if (current.isColliding(player)) {
