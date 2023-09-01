@@ -1,5 +1,4 @@
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.Node;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,7 +7,7 @@ public class Player extends GameObject implements IDamagable {
   @Getter
   @Setter
   private int maxHealth;
-  
+
   @Getter
   @Setter
   private int currentHealth = maxHealth;
@@ -17,8 +16,9 @@ public class Player extends GameObject implements IDamagable {
 
   private int iFramesLeft = 0;
 
-  Player(int maxHealth, float velocity) {
-    super(new Rectangle(40, 20, Color.BLUE), velocity);
+  Player(double x, double y, Node sprite, int maxHealth, float velocity) {
+    super(x, y, sprite);
+    this.setVelocity(velocity);
     this.maxHealth = maxHealth;
   }
 

@@ -17,7 +17,7 @@ public class App extends Application {
 
   public static final Scene scene = new Scene(root, 640, 480);
 
-  public List<GameObject> gameObjects = new ArrayList<>();
+  public static final List<GameObject> gameObjects = new ArrayList<>();
 
   private Player player;
 
@@ -26,13 +26,11 @@ public class App extends Application {
   @Override
   public void start(Stage stage) {
 
-    player = new Player(3, 5);
-    addGameObj(player, 300, 300);
+    player = new Player(300, 300, new Rectangle(40, 40, Color.BLUE), 3, 5);
 
     // create second gameObj
 
-    GameObject gameObj2 = new GameObject(new Rectangle(50, 50, Color.RED), 0);
-    addGameObj(gameObj2, 450, 300);
+    GameObject gameObj2 = new GameObject(450, 300, new Rectangle(50, 50, Color.RED));
 
     stage.setScene(scene);
     stage.show();
@@ -64,13 +62,6 @@ public class App extends Application {
       }
       current.update();
     }
-  }
-
-  public void addGameObj(GameObject object, double x, double y) {
-    object.getSprite().setTranslateX(x);
-    object.getSprite().setTranslateY(y);
-    App.root.getChildren().add(object.getSprite());
-    gameObjects.add(object);
   }
 
   public static void main(String[] args) {
