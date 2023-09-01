@@ -21,7 +21,7 @@ public class GameObject {
   }
 
   public boolean isColliding(GameObject other) {
-    //avoid checking collision on self
+    // avoid checking collision on self
     if (other == this)
       return false;
     return getSprite().getBoundsInParent().intersects(other.getSprite().getBoundsInParent());

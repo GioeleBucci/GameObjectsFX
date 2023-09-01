@@ -18,7 +18,7 @@ public class App extends Application {
 
   public List<GameObject> gameObjects = new ArrayList<>();
 
-  private GameObject player;
+  private Player player;
 
   private long last = 0;
 
@@ -27,7 +27,7 @@ public class App extends Application {
 
     Scene scene = new Scene(root, 640, 480);
 
-    player = new Player();
+    player = new Player(3);
     player.setVelocity(new Point2D(1, 0));
     addGameObj(player, 300, 300);
 
@@ -61,7 +61,8 @@ public class App extends Application {
   private void updateAll() {
     for (GameObject current : gameObjects) {
       if(current.isColliding(player)){
-        System.out.println("collision detected!");
+        //System.out.println("collision between " + current + " and " + player);
+        player.takeDamage(1);
       }
       current.update();
     }
