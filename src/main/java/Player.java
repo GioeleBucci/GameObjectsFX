@@ -8,6 +8,7 @@ public class Player extends GameObject implements IDamagable {
   @Getter
   @Setter
   private int maxHealth;
+  
   @Getter
   @Setter
   private int currentHealth = maxHealth;
@@ -17,11 +18,12 @@ public class Player extends GameObject implements IDamagable {
   private int iFramesLeft = 0;
 
   Player(int maxHealth, float velocity) {
-    super(new Rectangle(40, 20, Color.BLUE),velocity);
+    super(new Rectangle(40, 20, Color.BLUE), velocity);
     this.maxHealth = maxHealth;
   }
 
-  @Override void update(){
+  @Override
+  void update() {
     super.update();
   }
 

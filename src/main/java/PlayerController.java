@@ -1,10 +1,5 @@
-import java.io.Console;
-
-import javafx.animation.AnimationTimer;
 import javafx.geometry.Point2D;
-import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
-import javafx.scene.transform.Rotate;
 
 public class PlayerController {
 
@@ -33,16 +28,9 @@ public class PlayerController {
 
     App.scene.setOnKeyReleased(event -> {
       KeyCode key = event.getCode();
-      /* 
-      if (key == KeyCode.W)
-        isUp = false;
-      if (key == KeyCode.A)
-        isLeft = false;
-      if (key == KeyCode.S)
-        isDown = false;
-      if (key == KeyCode.D)
-        isRight = false;
-        */
+      if (key == KeyCode.W || key == KeyCode.A || key == KeyCode.S || key == KeyCode.D) {
+        player.setDirection(new Point2D(0, 0));
+      }
     });
   }
 

@@ -3,7 +3,6 @@ import java.util.List;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
-import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
@@ -27,12 +26,12 @@ public class App extends Application {
   @Override
   public void start(Stage stage) {
 
-    player = new Player(3,1);
+    player = new Player(3, 1);
     addGameObj(player, 300, 300);
 
     // create second gameObj
 
-    GameObject gameObj2 = new GameObject(new Rectangle(50, 50, Color.RED),0);
+    GameObject gameObj2 = new GameObject(new Rectangle(50, 50, Color.RED), 0);
     addGameObj(gameObj2, 450, 300);
 
     stage.setScene(scene);
@@ -59,8 +58,8 @@ public class App extends Application {
 
   private void updateAll() {
     for (GameObject current : gameObjects) {
-      if(current.isColliding(player)){
-        //System.out.println("collision between " + current + " and " + player);
+      if (current.isColliding(player)) {
+        // System.out.println("collision between " + current + " and " + player);
         player.takeDamage(1);
       }
       current.update();
