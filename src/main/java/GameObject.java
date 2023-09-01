@@ -7,7 +7,8 @@ public class GameObject {
 
   @Getter
   private Node sprite;
-  @Getter @Setter 
+  @Getter
+  @Setter
   private Point2D velocity = new Point2D(0, 0);
 
   public GameObject(Node sprite) {
@@ -20,6 +21,9 @@ public class GameObject {
   }
 
   public boolean isColliding(GameObject other) {
+    //avoid checking collision on self
+    if (other == this)
+      return false;
     return getSprite().getBoundsInParent().intersects(other.getSprite().getBoundsInParent());
   }
 }
