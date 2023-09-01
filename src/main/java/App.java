@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 public class App extends Application {
 
-  public static final int FPS = 30; // TODO watch video about mario movment and learn subpixels
+  public static final int FPS = 30;
 
   public static final Group root = new Group();
 

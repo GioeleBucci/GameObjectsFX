@@ -20,7 +20,7 @@ public class Player extends GameObject implements IDamagable {
   }
 
   public void takeDamage(int amount) {
-
+    
     // check if there are iFrames
     if (iFramesLeft > 0) {
       iFramesLeft--;
