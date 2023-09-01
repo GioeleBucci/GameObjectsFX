@@ -27,9 +27,9 @@ public class Player extends GameObject implements IDamagable {
       return;
     }
 
-    // if not take damage
+    // if not take damage and reset IFrames
     this.currentHealth -= amount;
-    System.out.println("took damage");
+    System.out.println("took " + amount + " damage");
     iFramesLeft = MAX_IFRAMES;
   }
 }
