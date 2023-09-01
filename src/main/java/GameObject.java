@@ -16,6 +16,7 @@ public class GameObject {
   @Setter
   private double velocity;
 
+  //TODO MAKE CONSTRUCTOR WITH ONLY STARTING POSITION
   public GameObject(Node sprite, double velocity) {
     this.velocity = velocity;
     this.sprite = sprite;

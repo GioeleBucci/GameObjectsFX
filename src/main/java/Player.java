@@ -22,11 +22,6 @@ public class Player extends GameObject implements IDamagable {
     this.maxHealth = maxHealth;
   }
 
-  @Override
-  void update() {
-    super.update();
-  }
-
   public void takeDamage(int amount) {
 
     // check if there are iFrames

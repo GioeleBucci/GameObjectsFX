@@ -26,7 +26,7 @@ public class App extends Application {
   @Override
   public void start(Stage stage) {
 
-    player = new Player(3, 1);
+    player = new Player(3, 5);
     addGameObj(player, 300, 300);
 
     // create second gameObj
