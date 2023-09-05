@@ -15,4 +15,6 @@ public interface IDamagable {
 
   void takeDamage(int amount);
 
+  void die();
+
 }
