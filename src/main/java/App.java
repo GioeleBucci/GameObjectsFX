@@ -3,10 +3,8 @@ import java.util.List;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
-import javafx.print.PageRange;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;

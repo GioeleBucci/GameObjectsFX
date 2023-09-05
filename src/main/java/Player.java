@@ -16,6 +16,8 @@ public class Player extends GameObject implements IDamagable {
 
   private int iFramesLeft = 0;
 
+  private boolean isDead = false;
+
   Player(double x, double y, Node sprite, int maxHealth, float speed) {
     super(x, y, sprite);
     this.setSpeed(speed);
@@ -24,6 +26,9 @@ public class Player extends GameObject implements IDamagable {
   }
 
   public void takeDamage(int amount) {
+
+    if (isDead)
+      return;
 
     // check if there are iFrames
     if (iFramesLeft > 0) {
@@ -45,6 +50,10 @@ public class Player extends GameObject implements IDamagable {
 
   public void die() {
 
+    if (isDead)
+      return;
+
+    isDead = true;
     System.out.println("you die!");
 
     // set speed to 0 so player cant move anymore
