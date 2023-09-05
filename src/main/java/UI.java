@@ -1,26 +1,15 @@
-import core.*;
-
-import javafx.scene.effect.ColorAdjust;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
-public class UI {
+public class UI extends Pane{
+
+  public UI_HealthBar healthBar;
+
   public UI() {
-    Pane canvas = new HBox();
-    App.root.getChildren().add(canvas);
 
-    canvas.setPrefSize(200, 200);
+  }
 
-    ImageView[] healthBar = new ImageView[3];
-    for (int i = 0; i < healthBar.length; i++) {
-      healthBar[i] = ImageUtils.newImgView("heartContainer.png");
-      canvas.getChildren().add(healthBar[i]);
-    }
-
-    // create a black overlay for image and apply it to the last container
-    ColorAdjust colorAdjust = new ColorAdjust();
-    colorAdjust.setBrightness(-1);
-    healthBar[healthBar.length - 1].setEffect(colorAdjust);
+  public void init(){
+    App.root.getChildren().add(this);
+    healthBar = new UI_HealthBar();
   }
 }

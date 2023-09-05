@@ -34,6 +34,10 @@ public class Player extends GameObject implements IDamagable {
     // if not take damage and reset IFrames
     this.currentHealth -= amount;
     System.out.println("took " + amount + " damage");
+
+    // update ui
+    App.UI.healthBar.update(currentHealth);
+
     if (currentHealth <= 0)
       die();
     iFramesLeft = MAX_IFRAMES;

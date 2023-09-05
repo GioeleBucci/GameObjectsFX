@@ -3,8 +3,10 @@ import java.util.List;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.print.PageRange;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -14,6 +16,8 @@ public class App extends Application {
   public static final int FPS = 30;
 
   public static final Group root = new Group();
+
+  public static final UI UI = new UI();
 
   public static final Scene scene = new Scene(root, 640, 480);
 
@@ -32,10 +36,11 @@ public class App extends Application {
 
     GameObject gameObj2 = new GameObject(450, 300, new Rectangle(50, 50, Color.RED));
 
+    // init UI
+    UI.init();
+
     stage.setScene(scene);
 
-    new UI();
-    
     stage.show();
 
     // start game loop -> update according to FPS
