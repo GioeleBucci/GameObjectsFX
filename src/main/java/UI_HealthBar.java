@@ -2,7 +2,6 @@ import core.ImageUtils;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 
 public class UI_HealthBar extends HBox {
 
