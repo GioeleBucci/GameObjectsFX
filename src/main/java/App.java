@@ -33,6 +33,9 @@ public class App extends Application {
     GameObject gameObj2 = new GameObject(450, 300, new Rectangle(50, 50, Color.RED));
 
     stage.setScene(scene);
+
+    new UI();
+    
     stage.show();
 
     // start game loop -> update according to FPS

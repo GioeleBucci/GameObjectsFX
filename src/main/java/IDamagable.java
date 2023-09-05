@@ -2,7 +2,7 @@ public interface IDamagable {
 
   /**
    * Invulnerability duration (in seconds).
-   * Determines the amount of I-Frames
+   * Determines the amount of IFrames
    */
   public static final double I_TIME = .8;
 
