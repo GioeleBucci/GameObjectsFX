@@ -11,19 +11,30 @@ public class Pickup extends GameObject {
     this.player = findPlayer();
   }
 
-  // put this in an interface maybe?
   /*
    * TODO currently the destroy method suck and this check is just
    * a workaround because it doesnt really get destroyed but just turns
    * invisible
    */
-  public void onPickup(Player target) {
+  @Override
+  public void update() {
+
+    super.update();
+    if (!isColliding(player)) {
+      return;
+    } else {
+      onPickup();
+    }
+  }
+
+  // put this in an interface maybe?
+  private void onPickup() {
     if (this.getSprite().isVisible() == false) {
       return;
     }
     this.destroy();
-    target.setCurrentHealth(target.getCurrentHealth() + 1);
-    App.UI.healthBar.update(target.getCurrentHealth());
+    player.setCurrentHealth(player.getCurrentHealth() + 1);
+    App.UI.healthBar.update(player.getCurrentHealth());
   }
 
   private Player findPlayer() {

@@ -23,7 +23,7 @@ public class App extends Application {
   public static final Scene scene = new Scene(root, 640, 480);
 
   public static final List<GameObject> gameObjects = new ArrayList<>();
-  
+
   @Getter
   private Player player;
 
@@ -33,10 +33,10 @@ public class App extends Application {
   public void start(Stage stage) {
 
     player = new Player(300, 300, new Rectangle(40, 40, Color.BLUE), 3, 5);
-
-    GameObject enemy = new GameObject(450, 300, new Rectangle(50, 50, Color.RED),Tags.ENEMY_TAG);
-
-    Pickup healthPickup = new Pickup(200,100,new Circle(15,Color.LIMEGREEN));
+    // instantiate an enemy
+    new GameObject(450, 300, new Rectangle(50, 50, Color.RED), Tags.ENEMY_TAG);
+    // instantiate a pickup
+    new Pickup(200, 100, new Circle(15, Color.LIMEGREEN));
 
     // init UI
     UI.init();

@@ -33,9 +33,6 @@ public class Player extends GameObject implements IDamagable {
       if (i.isColliding(this) && i.getTag() == Tags.ENEMY_TAG) {
         takeDamage(1);
       }
-      else if(i.isColliding(this) && i.getTag() == Tags.HEALTH_PICKUP_TAG) {
-        ((Pickup)i).onPickup(this);
-      }
     }
   }
 
