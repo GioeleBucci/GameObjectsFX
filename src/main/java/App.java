@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import core.Tags;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -32,7 +33,7 @@ public class App extends Application {
 
     // create second gameObj
 
-    GameObject gameObj2 = new GameObject(450, 300, new Rectangle(50, 50, Color.RED));
+    GameObject gameObj2 = new GameObject(450, 300, new Rectangle(50, 50, Color.RED),Tags.ENEMY);
 
     // init UI
     UI.init();
@@ -63,10 +64,6 @@ public class App extends Application {
   /** Runs the update() method on every gameObject */
   private void updateAll() {
     for (GameObject current : gameObjects) {
-      if (current.isColliding(player)) {
-        // System.out.println("collision between " + current + " and " + player);
-        player.takeDamage(1);
-      }
       current.update();
     }
   }

@@ -24,6 +24,10 @@ public class GameObject {
   @Setter
   private double speed = 0;
 
+  @Getter
+  @Setter
+  private String tag;
+
   public GameObject(double x, double y) {
     Point2D position = new Point2D(x, y);
     init(position);
@@ -31,6 +35,14 @@ public class GameObject {
 
   public GameObject(double x, double y, Node sprite) {
     this.setSprite(sprite);
+
+    Point2D position = new Point2D(x, y);
+    init(position);
+  }
+
+  public GameObject(double x, double y, Node sprite, String tag) {
+    this.setSprite(sprite);
+    this.setTag(tag);
 
     Point2D position = new Point2D(x, y);
     init(position);

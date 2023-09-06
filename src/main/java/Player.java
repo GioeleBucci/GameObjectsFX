@@ -1,3 +1,4 @@
+import core.Tags;
 import javafx.scene.Node;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,9 +21,20 @@ public class Player extends GameObject implements IDamagable {
 
   Player(double x, double y, Node sprite, int maxHealth, float speed) {
     super(x, y, sprite);
+    this.setTag(Tags.PLAYER);
     this.setSpeed(speed);
     this.maxHealth = maxHealth;
     this.currentHealth = maxHealth;
+  }
+
+  @Override
+  public void update() {
+    super.update();
+    for (GameObject current : App.gameObjects) {
+      if (current.isColliding(this) && current.getTag() == Tags.ENEMY) {
+        takeDamage(1);
+      }
+    }
   }
 
   public void takeDamage(int amount) {
