@@ -29,6 +29,11 @@ public class Player extends GameObject implements IDamagable {
   @Override
   public void update() {
     super.update();
+
+    // check if there are IFrames left and if so decrement it
+    if (iFramesLeft > 0)
+      iFramesLeft--;
+
     for (GameObject i : App.gameObjects) {
       if (i.isColliding(this) && i.getTag() == Tags.ENEMY_TAG) {
         takeDamage(1);
@@ -38,14 +43,8 @@ public class Player extends GameObject implements IDamagable {
 
   public void takeDamage(int amount) {
 
-    if (isDead)
+    if (isDead || iFramesLeft > 0)
       return;
-
-    // check if there are iFrames
-    if (iFramesLeft > 0) {
-      iFramesLeft--;
-      return;
-    }
 
     // if not take damage and reset IFrames
     this.setCurrentHealth(getCurrentHealth() - 1);
@@ -68,8 +67,8 @@ public class Player extends GameObject implements IDamagable {
     this.setSpeed(0);
   }
 
-  public void setCurrentHealth(int x){
-    if(x > maxHealth){
+  public void setCurrentHealth(int x) {
+    if (x > maxHealth) {
       x = maxHealth;
     }
     currentHealth = x;
