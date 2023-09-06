@@ -31,8 +31,11 @@ public class UI_HealthBar extends HBox {
     if (currentHealth < 0) { // avoud out of bounds writing
       currentHealth = 0;
     }
-    for (int i = currentHealth; i < icons.length; i++) {
-      setEmpty(i);
+    for (int i = 0; i < icons.length; i++) {
+      if (currentHealth > i) {
+        setFull(i);
+      } else
+        setEmpty(i);
     }
   }
 
@@ -40,6 +43,12 @@ public class UI_HealthBar extends HBox {
     // create a black overlay for image and apply it to current container
     ColorAdjust colorAdjust = new ColorAdjust();
     colorAdjust.setBrightness(-1);
+    this.icons[index].setEffect(colorAdjust);
+  }
+
+  private void setFull(int index) {
+    ColorAdjust colorAdjust = new ColorAdjust();
+    colorAdjust.setBrightness(0);
     this.icons[index].setEffect(colorAdjust);
   }
 }

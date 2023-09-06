@@ -10,7 +10,6 @@ public class Player extends GameObject implements IDamagable {
   private int maxHealth;
 
   @Getter
-  @Setter
   private int currentHealth;
 
   private PlayerController controller = new PlayerController(this);
@@ -21,7 +20,7 @@ public class Player extends GameObject implements IDamagable {
 
   Player(double x, double y, Node sprite, int maxHealth, float speed) {
     super(x, y, sprite);
-    this.setTag(Tags.PLAYER);
+    this.setTag(Tags.PLAYER_TAG);
     this.setSpeed(speed);
     this.maxHealth = maxHealth;
     this.currentHealth = maxHealth;
@@ -30,9 +29,12 @@ public class Player extends GameObject implements IDamagable {
   @Override
   public void update() {
     super.update();
-    for (GameObject current : App.gameObjects) {
-      if (current.isColliding(this) && current.getTag() == Tags.ENEMY) {
+    for (GameObject i : App.gameObjects) {
+      if (i.isColliding(this) && i.getTag() == Tags.ENEMY_TAG) {
         takeDamage(1);
+      }
+      else if(i.isColliding(this) && i.getTag() == Tags.HEALTH_PICKUP_TAG) {
+        ((Pickup)i).onPickup(this);
       }
     }
   }
@@ -49,11 +51,8 @@ public class Player extends GameObject implements IDamagable {
     }
 
     // if not take damage and reset IFrames
-    this.currentHealth -= amount;
+    this.setCurrentHealth(getCurrentHealth() - 1);
     System.out.println("took " + amount + " damage");
-
-    // update ui
-    App.UI.healthBar.update(currentHealth);
 
     if (currentHealth <= 0)
       die();
@@ -70,5 +69,13 @@ public class Player extends GameObject implements IDamagable {
 
     // set speed to 0 so player cant move anymore
     this.setSpeed(0);
+  }
+
+  public void setCurrentHealth(int x){
+    if(x > maxHealth){
+      x = maxHealth;
+    }
+    currentHealth = x;
+    App.UI.healthBar.update(currentHealth);
   }
 }

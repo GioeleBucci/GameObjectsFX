@@ -62,8 +62,14 @@ public class GameObject {
 
   public boolean isColliding(GameObject other) {
     // avoid checking collision on self
-    if (other == this)
+    if (other == this || other == null)
       return false;
     return getSprite().getBoundsInParent().intersects(other.getSprite().getBoundsInParent());
+  }
+
+  // FIXME destroy()
+  public void destroy(){
+    this.getSprite().setVisible(false);
+    //this.setSprite(null); this breaks everything
   }
 }

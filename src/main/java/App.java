@@ -7,8 +7,10 @@ import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import lombok.Getter;
 
 public class App extends Application {
 
@@ -21,7 +23,8 @@ public class App extends Application {
   public static final Scene scene = new Scene(root, 640, 480);
 
   public static final List<GameObject> gameObjects = new ArrayList<>();
-
+  
+  @Getter
   private Player player;
 
   private long last = 0;
@@ -31,9 +34,9 @@ public class App extends Application {
 
     player = new Player(300, 300, new Rectangle(40, 40, Color.BLUE), 3, 5);
 
-    // create second gameObj
+    GameObject enemy = new GameObject(450, 300, new Rectangle(50, 50, Color.RED),Tags.ENEMY_TAG);
 
-    GameObject gameObj2 = new GameObject(450, 300, new Rectangle(50, 50, Color.RED),Tags.ENEMY);
+    Pickup healthPickup = new Pickup(200,100,new Circle(15,Color.LIMEGREEN));
 
     // init UI
     UI.init();
